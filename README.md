@@ -2,22 +2,36 @@
 
 A **production-ready, modular Django REST Framework backend** implementing a hierarchical master-mapping system using only **APIView** (no ViewSets) and **drf-yasg** for API documentation.
 
-**Status:** ✅ **COMPLETE** - All requirements met, fully tested and running.
+**Status:** ✅ **COMPLETE & DEPLOYED** - All requirements met, fully tested, and running in production on PythonAnywhere.
 
 ---
 
-## 🎯 Quick Access
+## 🌐 📍 LIVE PRODUCTION URLS
 
-| Resource | URL |
-|----------|-----|
+### **Your Django App is NOW LIVE!**
+
+| Resource | Live URL |
+|----------|----------|
+| 🏠 **Home** | https://naveencg.pythonanywhere.com/ |
+| 📚 **Swagger UI (API Docs)** | https://naveencg.pythonanywhere.com/swagger/ |
+| 📖 **ReDoc (Alternative Docs)** | https://naveencg.pythonanywhere.com/redoc/ |
+| 🔐 **Django Admin Panel** | https://naveencg.pythonanywhere.com/admin/ |
+| 📡 **API Endpoints** | https://naveencg.pythonanywhere.com/api/vendors/ |
+
+### 🔐 Production Admin Credentials
+- **Username:** `admin`
+- **Password:** `admin123`
+
+---
+
+## 🎯 Local Development URLs
+
+| Resource | Local URL |
+|----------|-----------|
 | **API Documentation (Swagger)** | http://localhost:8000/swagger/ |
 | **Alternative Docs (ReDoc)** | http://localhost:8000/redoc/ |
 | **Django Admin** | http://localhost:8000/admin/ |
 | **API Root** | http://localhost:8000/ (redirects to Swagger) |
-
-### 🔐 Admin Credentials
-- **Username:** `admin`
-- **Password:** `admin123`
 
 ---
 
@@ -38,7 +52,7 @@ A **production-ready, modular Django REST Framework backend** implementing a hie
 
 ## 🚀 Setup & Installation
 
-### 1. **Activate Virtual Environment**
+### 1. **Activate Virtual Environment** (Local Development)
 ```powershell
 cd C:\django_intern_assignment
 .\venv\Scripts\Activate.ps1
@@ -75,13 +89,24 @@ The server will start at **http://127.0.0.1:8000**
 ### Master Resources (42 operations total)
 
 #### Vendors
+**Production:**
 ```
-GET    /api/vendors/              - List all vendors
-POST   /api/vendors/              - Create new vendor
-GET    /api/vendors/<id>/         - Get vendor details
-PUT    /api/vendors/<id>/         - Full update
-PATCH  /api/vendors/<id>/         - Partial update
-DELETE /api/vendors/<id>/         - Delete vendor
+GET    https://naveencg.pythonanywhere.com/api/vendors/             - List
+POST   https://naveencg.pythonanywhere.com/api/vendors/             - Create
+GET    https://naveencg.pythonanywhere.com/api/vendors/<id>/        - Get
+PUT    https://naveencg.pythonanywhere.com/api/vendors/<id>/        - Full update
+PATCH  https://naveencg.pythonanywhere.com/api/vendors/<id>/        - Partial update
+DELETE https://naveencg.pythonanywhere.com/api/vendors/<id>/        - Delete
+```
+
+**Local Development:**
+```
+GET    http://localhost:8000/api/vendors/             - List
+POST   http://localhost:8000/api/vendors/             - Create
+GET    http://localhost:8000/api/vendors/<id>/        - Get
+PUT    http://localhost:8000/api/vendors/<id>/        - Full update
+PATCH  http://localhost:8000/api/vendors/<id>/        - Partial update
+DELETE http://localhost:8000/api/vendors/<id>/        - Delete
 ```
 
 **Query Filters:**
@@ -90,21 +115,31 @@ DELETE /api/vendors/<id>/         - Delete vendor
 #### Products, Courses, Certifications
 Same endpoint structure as Vendors (substituting resource name):
 ```
-/api/products/
-/api/courses/
-/api/certifications/
+Production: /api/products/ | /api/courses/ | /api/certifications/
+Local: http://localhost:8000/api/products/ | /api/courses/ | /api/certifications/
 ```
 
 ### Mapping Resources
 
 #### Vendor-Product Mappings
+**Production:**
 ```
-GET    /api/vendor-product-mappings/              - List all mappings
-POST   /api/vendor-product-mappings/              - Create mapping
-GET    /api/vendor-product-mappings/<id>/        - Get mapping
-PUT    /api/vendor-product-mappings/<id>/        - Full update
-PATCH  /api/vendor-product-mappings/<id>/        - Partial update
-DELETE /api/vendor-product-mappings/<id>/        - Delete mapping
+GET    https://naveencg.pythonanywhere.com/api/vendor-product-mappings/        - List
+POST   https://naveencg.pythonanywhere.com/api/vendor-product-mappings/        - Create
+GET    https://naveencg.pythonanywhere.com/api/vendor-product-mappings/<id>/   - Get
+PUT    https://naveencg.pythonanywhere.com/api/vendor-product-mappings/<id>/   - Full update
+PATCH  https://naveencg.pythonanywhere.com/api/vendor-product-mappings/<id>/   - Partial update
+DELETE https://naveencg.pythonanywhere.com/api/vendor-product-mappings/<id>/   - Delete
+```
+
+**Local Development:**
+```
+GET    http://localhost:8000/api/vendor-product-mappings/        - List
+POST   http://localhost:8000/api/vendor-product-mappings/        - Create
+GET    http://localhost:8000/api/vendor-product-mappings/<id>/   - Get
+PUT    http://localhost:8000/api/vendor-product-mappings/<id>/   - Full update
+PATCH  http://localhost:8000/api/vendor-product-mappings/<id>/   - Partial update
+DELETE http://localhost:8000/api/vendor-product-mappings/<id>/   - Delete
 ```
 
 **Query Filters:**
@@ -116,14 +151,14 @@ DELETE /api/vendor-product-mappings/<id>/        - Delete mapping
 ```
 
 #### Product-Course Mappings
-```
-/api/product-course-mappings/          (filters: ?product_id=, ?course_id=)
-```
+**Production:** `https://naveencg.pythonanywhere.com/api/product-course-mappings/`
+**Local:** `http://localhost:8000/api/product-course-mappings/`
+*Filters: ?product_id=, ?course_id=*
 
 #### Course-Certification Mappings
-```
-/api/course-certification-mappings/    (filters: ?course_id=, ?certification_id=)
-```
+**Production:** `https://naveencg.pythonanywhere.com/api/course-certification-mappings/`
+**Local:** `http://localhost:8000/api/course-certification-mappings/`
+*Filters: ?course_id=, ?certification_id=*
 
 ---
 
@@ -183,11 +218,12 @@ django_intern_assignment/
 
 | Component | Version | Purpose |
 |-----------|---------|---------|
-| Django | 6.0.3 | Web framework |
-| Django REST Framework | 3.16.1 | API framework |
-| drf-yasg | 1.21.15 | Swagger/OpenAPI docs |
-| Python | 3.13.12 | Runtime |
+| Django | 4.2.13 LTS | Web framework |
+| Django REST Framework | 3.14.0 | API framework |
+| drf-yasg | 1.21.5 | Swagger/OpenAPI docs |
+| Python | 3.10 | Runtime |
 | SQLite | 3.x | Database |
+| Hosting | PythonAnywhere | Production deployment |
 
 ---
 
@@ -406,33 +442,81 @@ python manage.py runserver 8001
 
 ## 📦 Deployment
 
-### Production Checklist
+### ✅ DEPLOYED TO PYTHONANYWHERE (PRODUCTION)
+
+The application is **currently live** at:
+- **Domain:** https://naveencg.pythonanywhere.com/
+- **Status:** ✅ **LIVE & RUNNING**
+
+#### PythonAnywhere Deployment Details
+| Component | Details |
+|-----------|---------|
+| **Hosting** | PythonAnywhere (Free Tier) |
+| **Domain** | naveencg.pythonanywhere.com |
+| **Python Version** | 3.10 |
+| **Virtual Environment** | /home/NaveenCG/.virtualenvs/django_env |
+| **Project Path** | /home/NaveenCG/django_intern_assignment |
+| **Database** | SQLite (deployed with sample data) |
+| **Web Framework** | Django 4.2.13 LTS + WSGI |
+| **Static Files** | Collected to /staticfiles/ (192 files) |
+
+#### Live Endpoints Verified ✅
+- ✅ Swagger UI: https://naveencg.pythonanywhere.com/swagger/
+- ✅ ReDoc: https://naveencg.pythonanywhere.com/redoc/
+- ✅ Admin Panel: https://naveencg.pythonanywhere.com/admin/
+- ✅ Vendors API: https://naveencg.pythonanywhere.com/api/vendors/
+- ✅ Products API: https://naveencg.pythonanywhere.com/api/products/
+- ✅ Courses API: https://naveencg.pythonanywhere.com/api/courses/
+- ✅ Certifications API: https://naveencg.pythonanywhere.com/api/certifications/
+- ✅ All Mapping APIs working with filters
+
+---
+
+### Local Development Checklist
+- [ ] Clone repository
+- [ ] Create virtual environment
+- [ ] Install requirements: `pip install -r requirements.txt`
+- [ ] Run migrations: `python manage.py migrate`
+- [ ] Seed data: `python manage.py seed_data`
+- [ ] Start server: `python manage.py runserver`
+- [ ] Visit http://localhost:8000/swagger/
+
+### Production Deployment Guide (For Future Deployments)
+
+#### Pre-Deployment Checklist
 - [ ] Change `DEBUG = False` in settings.py
 - [ ] Update `ALLOWED_HOSTS` with your domain
 - [ ] Set `SECRET_KEY` from environment variable
-- [ ] Use PostgreSQL instead of SQLite
+- [ ] Use PostgreSQL instead of SQLite for production
 - [ ] Configure CORS headers if needed
-- [ ] Set up HTTPS/SSL
-- [ ] Use proper WSGI server (Gunicorn)
+- [ ] Set up HTTPS/SSL (PythonAnywhere provides free HTTPS)
 - [ ] Configure database backups
 - [ ] Set up monitoring and logging
 
-### Sample Production Settings
+#### PythonAnywhere Deployment Steps
+1. **Create PythonAnywhere Account** - Free tier available
+2. **Clone Repository** - `git clone <repo>`
+3. **Create Virtual Environment** - `mkvirtualenv django_env`
+4. **Install Dependencies** - `pip install -r requirements.txt`
+5. **Run Migrations** - `python manage.py migrate`
+6. **Seed Database** - `python manage.py seed_data`
+7. **Configure WSGI** - Edit WSGI file in PythonAnywhere console
+8. **Reload Web App** - Click reload button on PythonAnywhere
+
+#### Sample Production Settings
 ```python
 DEBUG = False
-ALLOWED_HOSTS = ['yourdomain.com', 'www.yourdomain.com']
+ALLOWED_HOSTS = ['yourdomain.pythonanywhere.com', 'localhost', '127.0.0.1']
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': os.environ.get('DB_NAME'),
-        'USER': os.environ.get('DB_USER'),
-        'PASSWORD': os.environ.get('DB_PASSWORD'),
-        'HOST': os.environ.get('DB_HOST'),
-        'PORT': os.environ.get('DB_PORT', 5432),
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
+
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 ```
 
 ---
@@ -452,13 +536,39 @@ DATABASES = {
 
 ---
 
-## 📞 Support
+## 📞 Support & Testing
 
-For issues or questions:
-1. Check the Swagger UI documentation: http://localhost:8000/swagger/
-2. Review ReDoc alternative: http://localhost:8000/redoc/
-3. Check Django logs in terminal output
-4. Verify database migrations: `python manage.py showmigrations`
+### Test the Live Application
+1. **Visit Production Swagger UI:** https://naveencg.pythonanywhere.com/swagger/
+2. **Interactive API Testing:** Click "Try it out" on any endpoint
+3. **View API Schema:** https://naveencg.pythonanywhere.com/swagger.json
+
+### Test Locally
+1. **Start Development Server:** `python manage.py runserver`
+2. **Visit Local Swagger UI:** http://localhost:8000/swagger/
+3. **Login to Admin:** http://localhost:8000/admin/ (admin/admin123)
+
+### For Issues
+1. **Check Production Logs:** PythonAnywhere Web tab → Error log
+2. **Check Local Logs:** Terminal output from `runserver`
+3. **Database Issues:** Run `python manage.py migrate --fake-initial`
+4. **Port Conflicts:** Use `python manage.py runserver 8001`
+
+### Quick Curl Tests
+
+**Test Production Endpoints:**
+```bash
+curl https://naveencg.pythonanywhere.com/api/vendors/
+curl https://naveencg.pythonanywhere.com/api/products/
+curl https://naveencg.pythonanywhere.com/api/courses/
+```
+
+**Test Local Endpoints:**
+```bash
+curl http://localhost:8000/api/vendors/
+curl http://localhost:8000/api/products/
+curl http://localhost:8000/api/courses/
+```
 
 ---
 
