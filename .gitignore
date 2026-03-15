@@ -1,0 +1,92 @@
+# Python
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+pip-wheel-metadata/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Virtual environments
+venv/
+env/
+ENV/
+.venv
+env.bak/
+venv.bak/
+
+# Django
+*.pyc
+__pycache__/
+*.log
+local_settings.py
+db.sqlite3
+db.sqlite3-journal
+/media
+/staticfiles
+.env
+.env.local
+.env.*.local
+
+# IDE & Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+*.sublime-project
+*.sublime-workspace
+.project
+.pydevproject
+.settings/
+
+# Testing & Coverage
+.pytest_cache/
+.coverage
+.coverage.*
+htmlcov/
+.tox/
+.hypothesis/
+.nox/
+
+# Misc
+*.pem
+*.key
+.cache/
+.tmp/
+*.bak
+*.swp
+dumps/
+
+# OS specific
+Thumbs.db
+.DS_Store
+._*
+desktop.ini
+
+# Credentials (never commit sensitive files)
+secrets.json
+credentials.json
+*.pem
+*.key
+
+# Backup files
+*.backup
+*.bk
+*~

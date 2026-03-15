@@ -1,0 +1,19 @@
+from rest_framework import serializers
+from .models import Course
+
+
+class CourseSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Course
+        fields = ['id', 'name', 'code', 'description', 'is_active', 'created_at', 'updated_at']
+        read_only_fields = ['id', 'created_at', 'updated_at']
+
+    def validate_code(self, value):
+        request = self.context.get('request')
+        if request and request.method == 'PUT':
+            if Course.objects.filter(code=value).exclude(pk=self.instance.pk).exists():
+                raise serializers.ValidationError("A course with this code already exists.")
+        elif request and request.method == 'POST':
+            if Course.objects.filter(code=value).exists():
+                raise serializers.ValidationError("A course with this code already exists.")
+        return value
