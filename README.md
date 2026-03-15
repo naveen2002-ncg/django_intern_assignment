@@ -19,7 +19,7 @@ A **production-ready, modular Django REST Framework backend** implementing a hie
 | 📡 **API Endpoints** | https://naveencg.pythonanywhere.com/api/vendors/ |
 
 ### 🔐 Production Admin Credentials
-- **Username:** `admin`
+- **Username:** `username`
 - **Password:** `admin123`
 
 ---
